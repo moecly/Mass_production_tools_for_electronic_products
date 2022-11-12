@@ -1,8 +1,10 @@
 #ifndef _INPUT_MANGER_H
 #define _INPUT_MANGER_H
 
+
 #ifndef NULL
 #define NULL (void *)0
+#endif
 
 #define INPUT_TYPE_TOUCH 0
 #define INPUT_TYPE_NET 1

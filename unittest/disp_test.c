@@ -4653,6 +4653,8 @@ void lcd_put_ascii(int x, int y, unsigned char c) {
   }
 }
 
+#if 0
+
 int main(int argc, char **argv) {
   region rgn;
   disp_buff buff;
@@ -4672,3 +4674,5 @@ int main(int argc, char **argv) {
 
   return 0;
 }
+
+#endif

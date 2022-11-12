@@ -1,5 +1,5 @@
 
-CROSS_COMPILE ?= arm-linux-gnueabihf-
+CROSS_COMPILE := arm-linux-gnueabihf-
 AS		= $(CROSS_COMPILE)as
 LD		= $(CROSS_COMPILE)ld
 CC		= $(CROSS_COMPILE)gcc
@@ -17,7 +17,7 @@ export STRIP OBJCOPY OBJDUMP
 CFLAGS := -Wall -O2 -g
 CFLAGS += -I $(shell pwd)/include
 
-LDFLAGS := 
+LDFLAGS := -lts
 
 export CFLAGS LDFLAGS
 
@@ -29,6 +29,7 @@ TARGET := test
 
 obj-y += display/
 obj-y += unittest/
+obj-y += input/
 
 
 all : start_recursive_build $(TARGET)
