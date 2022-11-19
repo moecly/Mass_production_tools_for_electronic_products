@@ -74,4 +74,5 @@ disp_test.o: disp_test.c \
  /linux/bsp/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/environments.h \
  /linux/bsp/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/bits/confname.h \
  /linux/bsp/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/getopt.h \
- /linux/drive/Mass_production_tools_for_electronic_products/include/disp_manger.h
+ /linux/drive/Mass_production_tools_for_electronic_products/include/disp_manger.h \
+ /linux/drive/Mass_production_tools_for_electronic_products/include/font_manger.h

@@ -17,7 +17,7 @@ export STRIP OBJCOPY OBJDUMP
 CFLAGS := -Wall -O2 -g
 CFLAGS += -I $(shell pwd)/include
 
-LDFLAGS := -lts
+LDFLAGS := -lts -lpthread -lfreetype -lz -lm
 
 export CFLAGS LDFLAGS
 
@@ -29,7 +29,12 @@ TARGET := test
 
 obj-y += display/
 obj-y += unittest/
+obj-y += business/
 obj-y += input/
+obj-y += config/
+obj-y += font/
+obj-y += page/
+obj-y += ui/
 
 
 all : start_recursive_build $(TARGET)

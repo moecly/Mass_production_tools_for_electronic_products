@@ -9,8 +9,10 @@
 #include <unistd.h>
 
 #include <disp_manger.h>
+#if 0
 
 #define FONTDATAMAX 4096
+
 
 static const unsigned char fontdata_8x16[FONTDATAMAX] = {
 
@@ -4653,7 +4655,6 @@ void lcd_put_ascii(int x, int y, unsigned char c) {
   }
 }
 
-#if 0
 
 int main(int argc, char **argv) {
   region rgn;

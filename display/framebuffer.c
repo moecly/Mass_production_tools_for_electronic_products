@@ -18,7 +18,7 @@ static unsigned int line_width;
 static unsigned int pixel_width;
 
 /*
- * 初始化lcd屏幕
+ * init lcd device.
  */
 static int lcd_device_init(void) {
   int ret;
@@ -37,14 +37,14 @@ static int lcd_device_init(void) {
   }
 
   /*
-   * 获取屏幕信息
+   * get and save lcd screen info.
    */
   pixel_width = var.bits_per_pixel / 8;
   line_width = pixel_width * var.xres;
   screen_size = var.xres * var.yres * pixel_width;
 
   /*
-   * 映射地址
+   * map address to framebuffer.
    */
   fb_base =
       mmap(NULL, screen_size, PROT_WRITE | PROT_READ, MAP_SHARED, fd_fb, 0);
@@ -58,7 +58,7 @@ static int lcd_device_init(void) {
 }
 
 /*
- * 取消映射，关闭文件，退出lcd
+ * unmap framebuffer and close fd.
  */
 static void lcd_device_exit(void) {
   munmap(fb_base, screen_size);
@@ -66,7 +66,7 @@ static void lcd_device_exit(void) {
 }
 
 /*
- * 获取屏幕framebuffer地址
+ * get lcd framebuffer base address.
  */
 static int lcd_get_buffer(disp_buff *dpbuff) {
   dpbuff->xres = var.xres;
@@ -76,10 +76,13 @@ static int lcd_get_buffer(disp_buff *dpbuff) {
   return True;
 }
 
+/* 
+ * no do something.
+ */
 // TODO
 static int lcd_flush_region(region rgn, disp_buff *buffer) { return 0; }
 
-disp_ops lcd_disp_ops = {
+static disp_ops lcd_disp_ops = {
     .name = "lcd",
     .device_init = lcd_device_init,
     .flush_region = lcd_flush_region,
@@ -88,6 +91,6 @@ disp_ops lcd_disp_ops = {
 };
 
 /*
- * 注册屏幕
+ * register framebuffer to linked list.
  */
 void frame_buffer_init(void) { register_display(&lcd_disp_ops); }

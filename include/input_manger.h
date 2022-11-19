@@ -24,8 +24,16 @@ typedef struct input_device {
   char *name;
   int (*get_input_event)(input_event *);
   int (*device_init)(void);
-  int (*device_exit)(void);
+  void (*device_exit)(void);
   struct input_device *next;
 } input_device;
+
+
+void register_input_device(input_device *idev);
+int select_input_device(char *name);
+void input_init(void);
+int def_input_dev_init(void);
+int get_input_event(input_event *ievt);
+void input_device_init(void);
 
 #endif
